@@ -1,7 +1,7 @@
 package com.example.namsom.easykku;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +13,9 @@ public class SignUpActivity extends AppCompatActivity {
     //Explicit
     private EditText nameEditText, phoneEditText,
             userEditText, passwordEditText;
-    private ImageView ImageView;
+    private ImageView imageView;
     private Button button;
     private String nameString, phoneString, userString, passwordString;
-
 
 
     @Override
@@ -24,19 +23,19 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
-        //Bind widget
+        //Bind Widget
         nameEditText = (EditText) findViewById(R.id.editText);
         phoneEditText = (EditText) findViewById(R.id.editText2);
         userEditText = (EditText) findViewById(R.id.editText3);
         passwordEditText = (EditText) findViewById(R.id.editText4);
-        ImageView = (android.widget.ImageView) findViewById(R.id.imageView);
+        imageView = (ImageView) findViewById(R.id.imageView);
         button = (Button) findViewById(R.id.button3);
 
 
         //SignUp Controller
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 //Get Value From Edit Text
                 nameString = nameEditText.getText().toString().trim();
@@ -45,27 +44,21 @@ public class SignUpActivity extends AppCompatActivity {
                 passwordString = passwordEditText.getText().toString().trim();
 
                 //Check Space
-                    // shift ctrl Enter เติมวงเล็บ
                 if (nameString.equals("") || phoneString.equals("") ||
                         userString.equals("") || passwordString.equals("")) {
                     //Have Space
                     Log.d("12novV1", "Have Space");
-                    MyAlert myAlert = new MyAlert(SignUpActivity.this, R.drawable.doremon48, "ช่องว่าง","กรอกให้ครบ");
-                    MyAlert.myDialog();
-
-
-
-
+                    MyAlert myAlert = new MyAlert(SignUpActivity.this, R.drawable.doremon48,
+                            "มีช่องว่าง", "กรุณากรอกให้ครบทุกช่องคะ");
+                    myAlert.myDialog();
                 }
 
 
-
-            } // OnClick
+            }   // onClick
         });
 
 
-    }    //Main Method
 
+    }   // Main Method
 
-}  //Main class
-
+}   // Main Class
